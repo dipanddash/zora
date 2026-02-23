@@ -1,11 +1,20 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { IT_SERVICE_CATEGORIES } from "../data/itServicesData";
 import { IT_SERVICE_ITEM_CONTENT } from "../data/itServiceItemContent";
-import { IT_HERO_IMAGES } from "../data/itHeroImages"; // ✅ NEW
+import { IT_HERO_IMAGES } from "../data/itHeroImages";
 
 const ITServiceItemPage: React.FC = () => {
   const { categorySlug, itemSlug } = useParams();
+
+  /* ✅ SCROLL TO TOP FIX */
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }, [categorySlug, itemSlug]);
 
   const category = useMemo(
     () => IT_SERVICE_CATEGORIES.find((c) => c.slug === categorySlug),
@@ -21,11 +30,11 @@ const ITServiceItemPage: React.FC = () => {
     return <Navigate to="/services/it" replace />;
   }
 
-  // ✅ Page content
+  // Page content
   const content =
     IT_SERVICE_ITEM_CONTENT?.[category.slug]?.[item.slug] ?? null;
 
-  // ✅ HERO IMAGE (NEW)
+  // Hero image
   const heroImage =
     IT_HERO_IMAGES[item.slug] ?? "/it-hero/default.png";
 
@@ -44,6 +53,7 @@ const ITServiceItemPage: React.FC = () => {
 
   return (
     <section className="relative min-h-screen bg-[#050816] text-white overflow-hidden">
+
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute w-[900px] h-[900px] bg-blue-700/20 blur-[180px] rounded-full top-[-280px] left-[-280px]" />
@@ -54,6 +64,7 @@ const ITServiceItemPage: React.FC = () => {
       {/* ================= HERO ================= */}
       <div className="pt-28 pb-16 px-6 border-b border-white/10">
         <div className="max-w-6xl mx-auto">
+
           {/* Breadcrumb */}
           <div className="text-sm text-gray-400 mb-6">
             <Link to="/services" className="hover:text-purple-300 transition">
@@ -79,7 +90,7 @@ const ITServiceItemPage: React.FC = () => {
 
           <div className="rounded-[32px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-2xl">
 
-            {/* ✅ IMAGE BANNER (NEW — SAME AS NON-IT) */}
+            {/* Image Banner */}
             <div className="relative h-56 md:h-72">
               <img
                 src={heroImage}
@@ -209,10 +220,7 @@ const ITServiceItemPage: React.FC = () => {
                 "Share your requirements and our team will reach out."}
             </p>
 
-            <form
-              onSubmit={onSubmit}
-              className="mt-8 grid md:grid-cols-2 gap-6"
-            >
+            <form onSubmit={onSubmit} className="mt-8 grid md:grid-cols-2 gap-6">
               <input
                 required
                 placeholder="Your name"
@@ -258,6 +266,7 @@ const ITServiceItemPage: React.FC = () => {
               </div>
             </form>
           </div>
+
         </div>
       </div>
     </section>

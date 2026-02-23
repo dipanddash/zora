@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const BookAppointment: React.FC = () => {
+
+  // ✅ Scroll page to top when this page opens
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // change to "smooth" if you want animation
+    });
+  }, []);
+
   return (
     <section className="bg-[#0b0618] text-white pt-28 pb-20 px-6">
       <div className="max-w-4xl mx-auto text-center">

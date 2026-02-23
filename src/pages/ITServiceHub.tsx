@@ -14,6 +14,7 @@ const ITServices: React.FC = () => {
       title: "Mobile Application Development",
       desc: "High-performance mobile applications for Android, iOS, and cross-platform environments.",
       slug: "mobile-application-development",
+      featured: true, // ✅ center highlight like reference
     },
     {
       title: "AI & Automation Solutions",
@@ -38,75 +39,103 @@ const ITServices: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-screen bg-[#050816] text-white overflow-hidden pt-32 pb-32 px-6">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[900px] h-[900px] bg-purple-800/30 blur-[180px] rounded-full top-[-250px] left-[-250px] animate-pulse" />
-        <div className="absolute w-[800px] h-[800px] bg-blue-700/30 blur-[160px] rounded-full bottom-[-250px] right-[-250px] animate-pulse" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(120,0,255,0.15),_transparent_70%)]" />
+    <section className="relative min-h-screen bg-[#f6f9ff] text-[#08122a] pt-28 pb-24 px-6 overflow-hidden">
+      {/* ✅ light grid background like reference */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 opacity-[0.55]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(15,23,42,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.06) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
+        />
+        <div className="absolute -top-64 -left-64 w-[740px] h-[740px] rounded-full bg-blue-300/25 blur-[120px]" />
+        <div className="absolute -bottom-72 -right-72 w-[760px] h-[760px] rounded-full bg-indigo-300/25 blur-[120px]" />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-32">
-          <h1 className="text-6xl md:text-7xl font-extrabold leading-tight">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Future-Grade
-            </span>
-            <br />
-            IT Engineering
-          </h1>
-          <p className="text-gray-400 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            A fully immersive digital architecture experience designed for
-            scale, intelligence, and enterprise-level precision.
-          </p>
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 border border-slate-200 text-sm text-slate-700 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-blue-600" />
+              Zora Global AI • IT Services
+            </div>
+
+            <h1 className="mt-5 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+              IT Services That Scale With Your Business
+            </h1>
+
+            <p className="mt-4 text-slate-600 max-w-2xl text-lg leading-relaxed">
+              Corporate-grade engineering for web, mobile, AI automation, cloud, and cybersecurity —
+              designed for performance, security, and growth.
+            </p>
+          </div>
+
+          <button
+            onClick={() => navigate("/book-appointment")}
+            className="w-fit px-6 py-3 rounded-full bg-slate-900 text-white font-semibold shadow-md hover:opacity-90 transition"
+          >
+            Free Consultation →
+          </button>
         </div>
 
-        <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 blur-[1px]" />
+        {/* ✅ Card Grid like reference */}
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {services.map((service) => {
+            const featured = (service as any).featured;
 
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`relative mb-32 flex ${
-                index % 2 === 0 ? "justify-start" : "justify-end"
-              }`}
-            >
-              <div className="absolute left-1/2 -translate-x-1/2 top-6 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-[0_0_25px_rgba(139,92,246,0.9)] animate-pulse" />
+            return (
+              <div
+                key={service.slug}
+                className={[
+                  "relative rounded-[34px] bg-white border shadow-[0_18px_50px_rgba(2,6,23,0.10)]",
+                  featured ? "border-blue-300/70" : "border-slate-200",
+                ].join(" ")}
+              >
+                {/* ✅ dotted pattern ONLY for featured (center) card */}
+                {featured && (
+                  <div
+                    className="absolute inset-0 rounded-[34px] opacity-[0.55] pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "radial-gradient(rgba(37,99,235,0.22) 1px, transparent 1px)",
+                      backgroundSize: "16px 16px",
+                    }}
+                  />
+                )}
 
-              <div className="w-[45%] relative group">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-600/20 to-purple-700/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-
-                <div className="relative p-10 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(139,92,246,0.25)] group-hover:shadow-[0_0_80px_rgba(139,92,246,0.6)] transition-all duration-500 hover:scale-105">
-                  <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <div className="relative p-10">
+                  <h3 className="text-2xl font-extrabold text-slate-900 leading-snug">
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-400 leading-relaxed text-lg">
+                  <p className="mt-4 text-slate-600 leading-relaxed">
                     {service.desc}
                   </p>
 
-                  {/* ✅ View more navigates */}
-                  <button
-                    onClick={() => navigate(`/services/it/${service.slug}`)}
-                    className="inline-flex items-center mt-8 font-semibold text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text hover:opacity-90 transition"
-                  >
-                    View more <span className="ml-2">→</span>
-                  </button>
-
-                  <div className="mt-6 h-[2px] w-0 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500" />
+                  {/* button row */}
+                  <div className="mt-10 flex justify-start">
+                    <button
+                      onClick={() => navigate(`/services/it/${service.slug}`)}
+                      className={[
+                        "inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold transition shadow-sm",
+                        featured
+                          ? "bg-blue-600 text-white hover:bg-blue-700"
+                          : "bg-slate-100 text-blue-700 hover:bg-slate-200",
+                      ].join(" ")}
+                    >
+                      View more <span className="translate-y-[1px]">→</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        <div className="mt-40 text-center">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Architecture Beyond Innovation
-          </h2>
-          <p className="text-gray-400 mt-6 max-w-3xl mx-auto text-lg">
-            We design intelligent digital ecosystems that evolve, adapt, and
-            scale with tomorrow’s technology demands.
-          </p>
+                {/* subtle hover lift like corporate */}
+                <div className="absolute inset-0 rounded-[34px] transition duration-300 hover:shadow-[0_25px_70px_rgba(2,6,23,0.16)]" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

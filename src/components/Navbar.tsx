@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-[#0b0618] text-white border-b border-white/10 fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* ✅ Logo Image Only */}
+        {/* Logo */}
         <Link to="/" className="flex items-center" onClick={scrollTop}>
           <img
             src="/logo.png"
@@ -23,21 +23,13 @@ const Navbar: React.FC = () => {
           />
         </Link>
 
-        {/* Desktop Menu */}
+        {/* ================= DESKTOP MENU ================= */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link
-            to="/"
-            className="hover:text-purple-400 transition"
-            onClick={scrollTop}
-          >
+          <Link to="/" className="hover:text-purple-400 transition" onClick={scrollTop}>
             Home
           </Link>
 
-          <Link
-            to="/about"
-            className="hover:text-purple-400 transition"
-            onClick={scrollTop}
-          >
+          <Link to="/about" className="hover:text-purple-400 transition" onClick={scrollTop}>
             About
           </Link>
 
@@ -95,12 +87,13 @@ const Navbar: React.FC = () => {
             )}
           </div>
 
-          <Link
-            to="/products"
-            className="hover:text-purple-400 transition"
-            onClick={scrollTop}
-          >
+          <Link to="/products" className="hover:text-purple-400 transition" onClick={scrollTop}>
             Products
+          </Link>
+
+          {/* ✅ UPDATED LABEL */}
+          <Link to="/contact" className="hover:text-purple-400 transition" onClick={scrollTop}>
+            ContactUs
           </Link>
 
           <Link
@@ -118,7 +111,7 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ================= MOBILE MENU ================= */}
       {menuOpen && (
         <div className="md:hidden bg-[#1a1a40] px-6 py-6 space-y-4 border-t border-white/10">
           <Link
@@ -204,6 +197,18 @@ const Navbar: React.FC = () => {
             }}
           >
             Products
+          </Link>
+
+          {/* ✅ UPDATED LABEL */}
+          <Link
+            to="/contact"
+            className="block hover:text-purple-400"
+            onClick={() => {
+              setMenuOpen(false);
+              scrollTop();
+            }}
+          >
+            ContactUs
           </Link>
 
           <Link

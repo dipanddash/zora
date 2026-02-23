@@ -1,79 +1,154 @@
-import React from "react";
+// src/pages/ITServices.tsx
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IT_SERVICE_CATEGORIES } from "../data/itServicesData";
 
 const ITServices: React.FC = () => {
   const navigate = useNavigate();
 
+  // ✅ Always open page from TOP
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // change to "smooth" if you want animation
+    });
+  }, []);
+
+  // ✅ active selected card highlight
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
+
   return (
-    <section className="relative min-h-screen bg-[#050816] text-white overflow-hidden pt-32 pb-32 px-6">
-      {/* Background */}
+    <section className="relative min-h-screen bg-[#050816] text-white overflow-hidden pt-28 pb-24 px-6">
+      {/* ===== DARK CORPORATE BACKGROUND ===== */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[900px] h-[900px] bg-purple-800/30 blur-[180px] rounded-full top-[-250px] left-[-250px] animate-pulse" />
-        <div className="absolute w-[800px] h-[800px] bg-blue-700/30 blur-[160px] rounded-full bottom-[-250px] right-[-250px] animate-pulse" />
-        <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:80px_80px]" />
+        <div className="absolute -top-60 -left-60 w-[800px] h-[800px] bg-[#7d4596]/30 blur-[180px] rounded-full" />
+        <div className="absolute -bottom-60 -right-60 w-[800px] h-[800px] bg-[#2aedf3]/20 blur-[180px] rounded-full" />
+
+        {/* subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.06]
+          bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)]
+          bg-[size:80px_80px]"
+        />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-24">
-          <h1 className="text-6xl md:text-7xl font-extrabold leading-tight">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Future-Grade
+      <div className="max-w-7xl mx-auto">
+        {/* ===== HEADER ===== */}
+        <div className="text-center mb-14">
+          <h1 className="text-5xl md:text-6xl font-extrabold">
+            <span className="bg-gradient-to-r from-[#2aedf3] to-[#7d4596] bg-clip-text text-transparent">
+              IT Services
             </span>
-            <br />
-            IT Engineering
           </h1>
 
-          <p className="text-gray-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
-            Select a category to explore detailed capabilities with an interactive master–detail layout.
+          <p className="text-gray-400 mt-5 max-w-3xl mx-auto text-lg">
+            Explore enterprise-grade solutions designed for scalability,
+            performance, and intelligent automation.
           </p>
         </div>
 
+        {/* ===== ADVANCED CORPORATE GRID WRAPPER ===== */}
         <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 blur-[1px]" />
+          {/* decorative grid atmosphere */}
+          <div className="absolute inset-0 -z-10 pointer-events-none">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(45,237,243,0.08),transparent_65%)]" />
 
-          {IT_SERVICE_CATEGORIES.map((cat, index) => (
             <div
-              key={cat.slug}
-              className={`relative mb-24 flex ${
-                index % 2 === 0 ? "justify-start" : "justify-end"
-              }`}
-            >
-              <div className="absolute left-1/2 -translate-x-1/2 top-6 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-[0_0_25px_rgba(139,92,246,0.9)] animate-pulse" />
+              className="absolute inset-0 opacity-[0.05]
+              bg-[linear-gradient(135deg,white_1px,transparent_1px)]
+              bg-[size:60px_60px]"
+            />
 
-              <div className="w-full md:w-[45%] relative group">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-600/20 to-purple-700/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
+            <div className="absolute top-0 left-0 w-96 h-96 bg-[#7d4596]/20 blur-[140px]" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2aedf3]/20 blur-[140px]" />
+          </div>
 
-                <div className="relative p-10 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(139,92,246,0.25)] group-hover:shadow-[0_0_80px_rgba(139,92,246,0.6)] transition-all duration-500 hover:scale-[1.02]">
-                  <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          {/* actual grid */}
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 relative">
+            {IT_SERVICE_CATEGORIES.map((cat) => {
+              const isActive = activeSlug === cat.slug;
+
+              return (
+                <div
+                  key={cat.slug}
+                  className={[
+                    "relative overflow-hidden rounded-3xl backdrop-blur-xl p-10 transition-all duration-300",
+                    isActive
+                      ? "bg-gradient-to-br from-[#7d4596]/40 to-[#2aedf3]/30 border border-[#2aedf3] shadow-[0_0_60px_rgba(45,237,243,0.35)]"
+                      : "bg-white/5 border border-white/10 hover:border-[#7d4596]/60 hover:shadow-[0_0_50px_rgba(125,69,150,0.25)]",
+                  ].join(" ")}
+                >
+                  {/* light sweep */}
+                  <div
+                    className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-700
+                    bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent)]
+                    translate-x-[-120%] hover:translate-x-[120%]"
+                  />
+
+                  {/* Title */}
+                  <h3
+                    className={[
+                      "relative text-2xl font-bold mb-4",
+                      isActive
+                        ? "text-[#2aedf3]"
+                        : "bg-gradient-to-r from-[#2aedf3] to-[#7d4596] bg-clip-text text-transparent",
+                    ].join(" ")}
+                  >
                     {cat.title}
                   </h3>
 
-                  <p className="text-gray-400 leading-relaxed text-lg">
+                  {/* Description */}
+                  <p className="relative text-gray-400 leading-relaxed">
                     {cat.desc}
                   </p>
 
+                  {/* View More Button */}
                   <button
-                    onClick={() => navigate(`/services/it/${cat.slug}`)}
-                    className="inline-flex items-center mt-8 font-semibold text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text hover:opacity-90 transition"
+                    onClick={() => {
+                      setActiveSlug(cat.slug);
+                      navigate(`/services/it/${cat.slug}`);
+                    }}
+                    className={[
+                      "relative mt-8 px-7 py-3 rounded-full font-semibold transition-all duration-300",
+                      isActive
+                        ? "bg-gradient-to-r from-[#2aedf3] to-[#7d4596] text-black shadow-lg"
+                        : "bg-white/10 text-[#2aedf3] hover:bg-[#7d4596]/30",
+                    ].join(" ")}
                   >
-                    View more <span className="ml-2">→</span>
+                    View more →
                   </button>
 
-                  <div className="mt-6 h-[2px] w-0 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500" />
+                  {/* bottom glow line */}
+                  <div
+                    className={[
+                      "relative mt-6 h-[2px] transition-all duration-500",
+                      isActive
+                        ? "w-full bg-gradient-to-r from-[#2aedf3] to-[#7d4596]"
+                        : "w-0",
+                    ].join(" ")}
+                  />
                 </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-28 text-center">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Built for Enterprise Delivery
+        {/* ===== CTA ===== */}
+        <div className="mt-20 text-center">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-[#2aedf3] to-[#7d4596] bg-clip-text text-transparent">
+            Built for Enterprise Innovation
           </h2>
-          <p className="text-gray-400 mt-5 max-w-3xl mx-auto text-lg">
-            Click any category to explore sub-services on the same page — fast, clean, and professional.
-          </p>
+
+          <button
+            onClick={() => navigate("/book-appointment")}
+            className="mt-8 px-8 py-3 rounded-full font-semibold
+            bg-gradient-to-r from-[#2aedf3] to-[#7d4596]
+            text-black shadow-[0_0_40px_rgba(45,237,243,0.35)]
+            hover:scale-105 transition"
+          >
+            Book Appointment →
+          </button>
         </div>
       </div>
     </section>

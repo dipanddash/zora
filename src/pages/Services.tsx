@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Services: React.FC = () => {
+  // ✅ Scroll to top when this page opens
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // change to "smooth" if you want
+    });
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-[#020010] text-white overflow-hidden">
       {/* ===== ULTRA DARK BACKGROUND SYSTEM ===== */}
@@ -41,16 +50,18 @@ const Services: React.FC = () => {
                 </h2>
 
                 <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                  High-performance AI systems, enterprise cloud architecture,
-                  DevOps automation, advanced cybersecurity, and scalable
-                  distributed platforms.
+                  High-performance engineering across web, mobile, AI automation,
+                  enterprise systems, cloud infrastructure, and cybersecurity.
                 </p>
 
+                {/* ✅ UPDATED IT LIST */}
                 <ul className="space-y-4 text-gray-300">
-                  <li>◆ Artificial Intelligence Engineering</li>
-                  <li>◆ Cloud-Native Architecture</li>
-                  <li>◆ DevSecOps Automation</li>
-                  <li>◆ Enterprise Software Systems</li>
+                  <li>◆ Website & Web Application Services</li>
+                  <li>◆ Mobile Application Development</li>
+                  <li>◆ AI & Automation Solutions</li>
+                  <li>◆ Custom Enterprise Software</li>
+                  <li>◆ Cloud & Infrastructure Services</li>
+                  <li>◆ Cybersecurity Solutions</li>
                 </ul>
 
                 <Link
@@ -106,15 +117,17 @@ const Services: React.FC = () => {
                 </h2>
 
                 <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                  Executive consulting, HR transformation, financial advisory,
-                  and operational excellence frameworks for sustainable growth.
+                  Business-focused services designed to accelerate growth,
+                  strengthen operations, build brands, and scale teams.
                 </p>
 
+                {/* ✅ UPDATED NON-IT LIST */}
                 <ul className="space-y-4 text-gray-300">
-                  <li>◆ Strategic Consulting</li>
-                  <li>◆ HR & Talent Systems</li>
-                  <li>◆ Financial Advisory</li>
-                  <li>◆ Operational Optimization</li>
+                  <li>◆ Business & Strategy Consulting</li>
+                  <li>◆ Branding & Creative Services</li>
+                  <li>◆ Accounting & Financial Operations</li>
+                  <li>◆ Digital Marketing Services</li>
+                  <li>◆ Staff Augmentation & Workforce Solutions</li>
                 </ul>
 
                 <Link

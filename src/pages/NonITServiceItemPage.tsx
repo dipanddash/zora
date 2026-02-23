@@ -1,5 +1,5 @@
 // src/pages/NonITServiceItemPage.tsx
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { NON_IT_SERVICE_CATEGORIES } from "../data/nonItServicesData";
 import { NON_IT_SERVICE_ITEM_CONTENT } from "../data/nonItServiceItemContent";
@@ -7,6 +7,15 @@ import { NON_IT_HERO_IMAGES } from "../data/nonItHeroImages";
 
 const NonITServiceItemPage: React.FC = () => {
   const { categorySlug, itemSlug } = useParams();
+
+  /* ✅ SCROLL TO TOP FIX */
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto", // change to "smooth" if you want animation
+    });
+  }, [categorySlug, itemSlug]);
 
   const category = useMemo(
     () => NON_IT_SERVICE_CATEGORIES.find((c) => c.slug === categorySlug),

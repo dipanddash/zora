@@ -1,5 +1,5 @@
 // src/pages/NonITServices.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -34,6 +34,11 @@ const services = [
 ];
 
 const NonITServices: React.FC = () => {
+  // ✅ Always start from top when this page opens
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // change to "smooth" if needed
+  }, []);
+
   return (
     <section className="relative bg-[#050510] text-white min-h-screen overflow-hidden">
       {/* Animated Background Glow */}

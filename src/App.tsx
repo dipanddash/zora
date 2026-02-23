@@ -25,6 +25,9 @@ import NonITServiceItemPage from "./pages/NonITServiceItemPage";
 import Products from "./pages/Products";
 import BookAppointment from "./pages/BookAppointment";
 
+// ✅ ADD THIS LINE ONLY
+import ContactPage from "./pages/ContactPage";
+
 const App: React.FC = () => {
   return (
     <Router>
@@ -39,6 +42,9 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+
+            {/* ✅ ADD THIS LINE ONLY */}
+            <Route path="/contact" element={<ContactPage />} />
 
             {/* ---------- IT SERVICES FLOW ---------- */}
             <Route path="/services/it" element={<ITServices />} />
