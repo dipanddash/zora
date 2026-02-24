@@ -23,6 +23,7 @@ const TRUSTED_BY = [
 ];
 
 const TrustedBy: React.FC = () => {
+  // ✅ duplicate list for seamless marquee
   const items = [...TRUSTED_BY, ...TRUSTED_BY];
 
   return (
@@ -33,10 +34,10 @@ const TrustedBy: React.FC = () => {
         style={{ backgroundImage: "url('/backgrounds/trusted-bg.png')" }}
       />
 
-      {/* ✅ Lighter dark overlay (was 0.70 -> now 0.45) */}
+      {/* ✅ Lighter dark overlay */}
       <div className="absolute inset-0 z-[1] bg-[#020010]/45" />
 
-      {/* ✅ Highlight boost (brings image glow back) */}
+      {/* ✅ Highlight boost */}
       <div
         className="absolute inset-0 z-[2] pointer-events-none mix-blend-screen opacity-65"
         style={{
@@ -45,7 +46,7 @@ const TrustedBy: React.FC = () => {
         }}
       />
 
-      {/* ✅ Stronger Brand tint overlay (your theme colors) */}
+      {/* ✅ Stronger Brand tint overlay */}
       <div
         className="absolute inset-0 z-[3] pointer-events-none"
         style={{
@@ -56,7 +57,7 @@ const TrustedBy: React.FC = () => {
         }}
       />
 
-      {/* ✅ Smaller blur (was 1.5px -> now 0.6px) */}
+      {/* ✅ Smaller blur */}
       <div className="absolute inset-0 z-[4] pointer-events-none backdrop-blur-[0.6px]" />
 
       {/* ✅ Keyframes */}
@@ -78,16 +79,25 @@ const TrustedBy: React.FC = () => {
           us to build systems that grow with their business.
         </p>
 
-        {/* ✅ Marquee */}
-        <div className="relative overflow-hidden">
-          {/* edge fade */}
+        {/* ✅ Marquee (FULLY FIXED) */}
+        <div
+          className="relative overflow-hidden"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            maskImage:
+              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+          }}
+        >
+          {/* edge fade (kept as visual polish) */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#020010] to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#020010] to-transparent z-10" />
 
+          {/* ✅ Track */}
           <div
             className="
-              flex w-[200%] gap-3
-              [animation:zora-marquee_28s_linear_infinite]
+              flex w-max gap-3 px-6
+              [animation:zora-marquee_30s_linear_infinite]
               hover:[animation-play-state:paused]
             "
           >

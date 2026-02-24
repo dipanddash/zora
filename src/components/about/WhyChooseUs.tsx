@@ -61,7 +61,7 @@ const WhyChooseUs: React.FC = () => {
 
             <p className="mt-5 md:mt-6 text-white/75 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed px-1">
               Enterprise-grade engineering, AI acceleration, and consulting
-              discipline — delivered with speed, security, and measurable
+              discipline delivered with speed, security, and measurable
               outcomes.
             </p>
           </div>

@@ -7,18 +7,17 @@ const TECH_STACK = [
   "Google Cloud Platform (GCP)",
   "Kubernetes",
   "Firebase",
+  "Zora Global AI Intelligence Platform", // ✅ ADDED (company technology)
 ];
 
 const Technologies: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  // ✅ Scroll progress only for this section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  // ✅ Parallax: background moves slower than scroll
   const bgY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
   const glowY = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
   const tintY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
@@ -28,7 +27,7 @@ const Technologies: React.FC = () => {
       ref={sectionRef}
       className="relative py-28 px-6 border-b border-blue-900/40 overflow-hidden isolate"
     >
-      {/* ✅ Background Image (PARALLAX) */}
+      {/* Background Image */}
       <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
@@ -37,10 +36,10 @@ const Technologies: React.FC = () => {
         }}
       />
 
-      {/* ✅ Overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 z-[1] bg-[#020010]/45" />
 
-      {/* ✅ Glow (PARALLAX) */}
+      {/* Glow */}
       <motion.div
         className="absolute inset-0 z-[2] pointer-events-none mix-blend-screen opacity-70 will-change-transform"
         style={{
@@ -50,7 +49,7 @@ const Technologies: React.FC = () => {
         }}
       />
 
-      {/* ✅ Brand Tint (PARALLAX) */}
+      {/* Brand Tint */}
       <motion.div
         className="absolute inset-0 z-[3] pointer-events-none opacity-100 will-change-transform"
         style={{
@@ -62,10 +61,10 @@ const Technologies: React.FC = () => {
         }}
       />
 
-      {/* ✅ Soft depth */}
+      {/* Depth */}
       <div className="absolute inset-0 z-[4] pointer-events-none backdrop-blur-[0.6px]" />
 
-      {/* ================= CONTENT ================= */}
+      {/* CONTENT */}
       <div className="relative z-10 max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-purple-400 mb-6">
           Built on a Foundation of Trusted Technologies
@@ -93,7 +92,6 @@ const Technologies: React.FC = () => {
                 transition-all duration-300
               "
             >
-              {/* subtle hover glow */}
               <div
                 className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{

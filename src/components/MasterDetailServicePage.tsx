@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import type { ServiceCategory, ServiceItem } from "../data/itServicesData";
 import { IT_HERO_IMAGES } from "../data/itHeroImages";
@@ -17,12 +17,32 @@ const MasterDetailServicePage: React.FC<Props> = ({ category, backTo }) => {
 
   const [selectedSlug, setSelectedSlug] = useState(initialItem.slug);
 
+  // ✅ keep selection in sync if URL changes
+  useEffect(() => {
+    if (!itemSlug) return;
+    setSelectedSlug(itemSlug);
+  }, [itemSlug]);
+
   const selectedItem = useMemo(
     () => category.items.find((i) => i.slug === selectedSlug) ?? category.items[0],
     [category.items, selectedSlug]
   );
 
   const heroImage = IT_HERO_IMAGES[selectedItem.slug];
+
+  // ✅ scroll helper
+  const scrollToTop = () => {
+    // handle both window + common scroll containers
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // if your app uses an inner scroll container
+    const container =
+      document.querySelector<HTMLElement>("#app-scroll") ||
+      document.querySelector<HTMLElement>("[data-scroll-container]");
+    if (container) container.scrollTop = 0;
+  };
 
   return (
     <section className="relative min-h-screen bg-[#050816] text-white overflow-hidden pt-28 pb-16 px-6">
@@ -77,7 +97,14 @@ const MasterDetailServicePage: React.FC<Props> = ({ category, backTo }) => {
                   return (
                     <button
                       key={item.slug}
-                      onClick={() => setSelectedSlug(item.slug)}
+                      onClick={() => {
+                        setSelectedSlug(item.slug);
+
+                        // ✅ FIX: scroll to top when switching item within same route
+                        requestAnimationFrame(() => {
+                          scrollToTop();
+                        });
+                      }}
                       className={`w-full text-left rounded-2xl px-6 py-5 transition border ${
                         active
                           ? "bg-gradient-to-r from-blue-600/25 to-purple-600/25 border-white/10"
@@ -99,6 +126,7 @@ const MasterDetailServicePage: React.FC<Props> = ({ category, backTo }) => {
                 <Link
                   to={backTo}
                   className="text-sm text-gray-300 hover:text-purple-300"
+                  onClick={() => scrollToTop()} // ✅ optional
                 >
                   ← Back to IT Services
                 </Link>
@@ -152,6 +180,7 @@ const MasterDetailServicePage: React.FC<Props> = ({ category, backTo }) => {
                 <div className="mt-10 flex flex-wrap gap-4">
                   <Link
                     to={`/services/it/${category.slug}/${selectedItem.slug}`}
+                    onClick={() => scrollToTop()} // ✅ ensures top on navigation
                     className="px-10 py-4 rounded-2xl bg-purple-600 hover:bg-purple-700 font-semibold"
                   >
                     View Service
@@ -159,13 +188,17 @@ const MasterDetailServicePage: React.FC<Props> = ({ category, backTo }) => {
 
                   <Link
                     to="/book-appointment"
+                    onClick={() => scrollToTop()} // ✅ ensures top on navigation
                     className="px-10 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 font-semibold"
                   >
                     Book Appointment
                   </Link>
 
                   <button
-                    onClick={() => navigate(-1)}
+                    onClick={() => {
+                      scrollToTop(); // ✅ ensure top after back as well
+                      navigate(-1);
+                    }}
                     className="px-10 py-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10"
                   >
                     Go Back

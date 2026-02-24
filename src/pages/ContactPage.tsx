@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar"; // ✅ FIXED PATH
-import Footer from "../components/Footer"; // ✅ ADDED (missing)
 import { useForm, ValidationError } from "@formspree/react";
 
 const ContactPage: React.FC = () => {
-  // ✅ always start from top
+  // ✅ Always start from top
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
   }, []);
@@ -34,14 +32,10 @@ const ContactPage: React.FC = () => {
   const [state, handleSubmit] = useForm("xreaoegz");
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* ✅ Keep Navbar (App.tsx already has Navbar too.
-          If you see 2 navbars, remove this one here.)
-      */}
-      <Navbar />
+    <div className="bg-black text-white">
+      <div className="pt-24 px-4 md:px-6 max-w-7xl mx-auto pb-24 md:pb-0">
 
-      <div className="pt-24 px-4 md:px-6 max-w-7xl mx-auto">
-        {/* Header */}
+        {/* ================= HEADER ================= */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,15 +45,17 @@ const ContactPage: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
             Contact Us
           </h1>
+
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to transform your business with AI? Get in touch with our
             experts.
           </p>
         </motion.div>
 
-        {/* ✅ 2-column layout */}
+        {/* ================= MAIN GRID ================= */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          {/* ================= LEFT: FORM ================= */}
+
+          {/* ---------- LEFT : FORM ---------- */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,6 +68,7 @@ const ContactPage: React.FC = () => {
               <h2 className="text-2xl md:text-3xl font-bold mb-2">
                 Send us a message
               </h2>
+
               <p className="text-gray-400 mb-8">
                 Fill the form and our team will get back to you.
               </p>
@@ -81,136 +78,56 @@ const ContactPage: React.FC = () => {
                   <p className="text-emerald-200 font-semibold text-lg">
                     Thanks! Your message has been sent ✅
                   </p>
-                  <p className="text-emerald-200/70 mt-2 text-sm">
-                    We’ll respond as soon as possible.
-                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  {/* ✅ ADDED: Full Name */}
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Full Name
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      name="name"
-                      required
-                      placeholder="Your full name"
-                      className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 focus:border-cyan-400/40"
-                    />
-                  </div>
 
-                  {/* ✅ ADDED: Age */}
-                  <div>
-                    <label
-                      htmlFor="age"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Age
-                    </label>
-                    <input
-                      id="age"
-                      type="number"
-                      name="age"
-                      min={18}
-                      required
-                      placeholder="18+"
-                      className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 focus:border-cyan-400/40"
-                    />
-                  </div>
+                  {/* Name */}
+                  <Input label="Full Name" name="name" placeholder="Your full name" />
 
-                  {/* ✅ ADDED: Company */}
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Company
-                    </label>
-                    <input
-                      id="company"
-                      type="text"
-                      name="company"
-                      required
-                      placeholder="Company name"
-                      className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400/30 focus:border-purple-400/30"
-                    />
-                  </div>
+                  {/* Phone */}
+                  <Input label="Phone Number" name="phone" placeholder="Enter Your number" />
 
-                  {/* ✅ ADDED: Phone Number */}
+                  {/* Email */}
                   <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Phone Number
-                    </label>
+                    <Label>Email Address</Label>
                     <input
-                      id="phone"
-                      type="tel"
-                      name="phone"
-                      required
-                      placeholder="+91 XXXXX XXXXX"
-                      className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400/30 focus:border-purple-400/30"
-                    />
-                  </div>
-
-                  {/* Email (your original) */}
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      id="email"
                       type="email"
                       name="email"
                       required
-                      placeholder="you@company.com"
-                      className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400/40 focus:border-cyan-400/40"
+                      placeholder="Enter your email address"
+                      className={inputStyle}
                     />
-                    <ValidationError
-                      prefix="Email"
-                      field="email"
-                      errors={state.errors}
-                    />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
                   </div>
 
-                  {/* Message (your original) */}
+                  {/* Message */}
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Message
-                    </label>
+                    <Label>Message</Label>
                     <textarea
-                      id="message"
                       name="message"
-                      required
                       rows={6}
+                      required
                       placeholder="Tell us what you need..."
-                      className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400/30 focus:border-purple-400/30"
+                      className={inputStyle}
                     />
-                    <ValidationError
-                      prefix="Message"
-                      field="message"
-                      errors={state.errors}
-                    />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </div>
 
-                  {/* Submit (your original) */}
+                  {/* ✅ Smaller Submit Button */}
                   <button
                     type="submit"
                     disabled={state.submitting}
-                    className="w-full inline-flex justify-center items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="
+                      w-full
+                      bg-gradient-to-r from-purple-600 to-blue-600
+                      hover:from-purple-700 hover:to-blue-700
+                      font-semibold
+                      text-sm
+                      py-2.5
+                      rounded-lg
+                      transition-all
+                    "
                   >
                     {state.submitting ? "Sending..." : "Submit"}
                   </button>
@@ -223,25 +140,24 @@ const ContactPage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* ================= RIGHT: INFO + CTA ================= */}
+          {/* ---------- RIGHT : INFO + CTA ---------- */}
           <div>
-            {/* Contact Info Cards */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-8 mb-10"
             >
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((info, i) => (
                 <div
-                  key={index}
-                  className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
+                  key={i}
+                  className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-purple-500/20"
                 >
                   <div className="text-3xl mb-4">{info.icon}</div>
                   <h3 className="text-xl font-semibold mb-2 text-purple-400">
                     {info.title}
                   </h3>
-                  <p className="text-white font-medium mb-1">{info.details}</p>
+                  <p className="text-white font-medium">{info.details}</p>
                   <p className="text-gray-400 text-sm">{info.description}</p>
                 </div>
               ))}
@@ -261,15 +177,16 @@ const ContactPage: React.FC = () => {
                 </span>
                 ?
               </h2>
-              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+
+              <p className="text-gray-300 mb-8">
                 Let's discuss how our AI solutions can help your business grow.
-                Book a free consultation with our experts.
               </p>
+
               <a
                 href="https://calendly.com/zoraglobalai/30?month=2026-02"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+                className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-8 rounded-lg"
               >
                 Get an Appointment
               </a>
@@ -277,13 +194,48 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="h-16" />
+        {/* Footer spacing */}
+        <div className="mt-16 hidden md:block">
+          <div className="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+          <div className="h-16" />
+        </div>
       </div>
-
-      {/* ✅ ADDED: Footer (missing) */}
-      <Footer />
     </div>
   );
 };
+
+/* ---------- Helpers ---------- */
+
+const inputStyle =
+  "w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400/30";
+
+const Label = ({ children }: { children: React.ReactNode }) => (
+  <label className="block text-sm font-medium text-gray-300 mb-2">
+    {children}
+  </label>
+);
+
+const Input = ({
+  label,
+  name,
+  placeholder,
+  type = "text",
+}: {
+  label: string;
+  name: string;
+  placeholder: string;
+  type?: string;
+}) => (
+  <div>
+    <Label>{label}</Label>
+    <input
+      type={type}
+      name={name}
+      required
+      placeholder={placeholder}
+      className={inputStyle}
+    />
+  </div>
+);
 
 export default ContactPage;

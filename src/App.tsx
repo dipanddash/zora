@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import CookieNotice from "./components/CookieNotice";
+import ScrollToTop from "./components/ScrollToTop";
+import RouteTitle from "./components/RouteTitle";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -24,13 +26,17 @@ import NonITServiceItemPage from "./pages/NonITServiceItemPage";
 /* ================= OTHER PAGES ================= */
 import Products from "./pages/Products";
 import BookAppointment from "./pages/BookAppointment";
-
-// ✅ ADD THIS LINE ONLY
 import ContactPage from "./pages/ContactPage";
 
 const App: React.FC = () => {
   return (
     <Router>
+      {/* ✅ Scroll on every route change */}
+      <ScrollToTop />
+
+      {/* ✅ Tab title on every route change */}
+      <RouteTitle />
+
       <div className="bg-[#0b0618] text-white min-h-screen flex flex-col">
         {/* NAVBAR */}
         <Navbar />
@@ -42,8 +48,6 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-
-            {/* ✅ ADD THIS LINE ONLY */}
             <Route path="/contact" element={<ContactPage />} />
 
             {/* ---------- IT SERVICES FLOW ---------- */}
@@ -59,14 +63,10 @@ const App: React.FC = () => {
 
             {/* ---------- NON-IT SERVICES FLOW ---------- */}
             <Route path="/services/non-it" element={<NonITServices />} />
-
-            {/* Category Page */}
             <Route
               path="/services/non-it/:categorySlug"
               element={<NonITServiceCategoryPage />}
             />
-
-            {/* Service Detail Page */}
             <Route
               path="/services/non-it/:categorySlug/:itemSlug"
               element={<NonITServiceItemPage />}

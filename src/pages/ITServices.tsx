@@ -73,7 +73,7 @@ const ITServices: React.FC = () => {
                 <div
                   key={cat.slug}
                   className={[
-                    "relative overflow-hidden rounded-3xl backdrop-blur-xl p-10 transition-all duration-300",
+                    "relative overflow-hidden rounded-3xl backdrop-blur-xl p-7 sm:p-9 md:p-10 transition-all duration-300",
                     isActive
                       ? "bg-gradient-to-br from-[#7d4596]/40 to-[#2aedf3]/30 border border-[#2aedf3] shadow-[0_0_60px_rgba(45,237,243,0.35)]"
                       : "bg-white/5 border border-white/10 hover:border-[#7d4596]/60 hover:shadow-[0_0_50px_rgba(125,69,150,0.25)]",

@@ -17,7 +17,7 @@ const LongTermVision: React.FC = () => {
         Our long-term focus is on adaptive AI ecosystems capable of evolving
         alongside technological advancements, regulatory shifts, and
         enterprise complexity. We design systems that are future-ready by
-        architecture — not by trend.
+        architecture not by trend.
       </p>
     </div>
   );

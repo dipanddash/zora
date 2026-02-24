@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FloatingLines from "../FloatingLines"; 
+import FloatingLines from "../FloatingLines";
 
 const AboutHero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center text-center overflow-hidden">
       {/* ✅ FULLSCREEN ANIMATION LAYER */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full">
+        <div className="w-full h-full will-change-transform">
           <FloatingLines
             linesGradient={["#E945F5", "#2F4BC0", "#E945F5"]}
             animationSpeed={1}
@@ -36,7 +36,7 @@ const AboutHero: React.FC = () => {
       </div>
 
       {/* ✅ CONTENT (top layer) */}
-      <div className="relative z-20 px-6 max-w-6xl">
+      <div className="relative z-20 px-6 max-w-6xl mx-auto">
         <h1 className="mt-6 text-6xl md:text-8xl font-black leading-tight tracking-tight">
           <span
             className="bg-clip-text text-transparent"

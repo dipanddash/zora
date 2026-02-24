@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Cta: React.FC = () => {
   return (
     <section className="relative py-28 px-6 text-center overflow-hidden isolate border-b border-blue-900/40">
-      {/* ✅ Background Image (save as: public/backgrounds/cta-bg.png) */}
+      {/* ✅ Background Image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -12,10 +12,10 @@ const Cta: React.FC = () => {
         }}
       />
 
-      {/* ✅ Light dark overlay (keeps image visible, not dull) */}
+      {/* Overlay */}
       <div className="absolute inset-0 z-[1] bg-[#020010]/45" />
 
-      {/* ✅ Highlight boost (brings back glow from image) */}
+      {/* Highlight boost */}
       <div
         className="absolute inset-0 z-[2] pointer-events-none mix-blend-screen opacity-60"
         style={{
@@ -24,7 +24,7 @@ const Cta: React.FC = () => {
         }}
       />
 
-      {/* ✅ Brand color tint overlay (your colors: #7d4596 and #2aedf3) */}
+      {/* Brand tint overlay */}
       <div
         className="absolute inset-0 z-[3] pointer-events-none"
         style={{
@@ -35,7 +35,7 @@ const Cta: React.FC = () => {
         }}
       />
 
-      {/* ✅ Slight depth (very small blur) */}
+      {/* Depth blur */}
       <div className="absolute inset-0 z-[4] pointer-events-none backdrop-blur-[0.6px]" />
 
       {/* ✅ Content */}
@@ -49,18 +49,20 @@ const Cta: React.FC = () => {
           day one.
         </p>
 
+        {/* ✅ SMALLER CTA BUTTON (ONLY CHANGE) */}
         <Link
           to="/services"
           className="
             inline-flex items-center justify-center
-            px-12 md:px-14 py-5 md:py-6
+            px-8 md:px-9 py-3.5 md:py-4   /* reduced padding */
             bg-blue-700
-            rounded-2xl
-            font-bold
+            rounded-xl                    /* slightly tighter */
+            font-semibold                 /* lighter weight */
+            text-sm md:text-base          /* smaller text */
             text-white
-            shadow-[0_0_40px_rgba(37,99,235,0.55)]
+            shadow-[0_0_28px_rgba(37,99,235,0.5)]
             hover:bg-blue-600
-            hover:shadow-[0_0_70px_rgba(37,99,235,0.85)]
+            hover:shadow-[0_0_45px_rgba(37,99,235,0.8)]
             hover:scale-[1.03]
             transition-all duration-300
           "

@@ -16,7 +16,7 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-[#140a28] text-white overflow-hidden">
+    <section className="relative min-h-screen bg-[#140a28] text-white overflow-x-hidden">
       {/* ✅ Background system for the whole page (behind everything) */}
       <div
         className="absolute inset-0 -z-30"
@@ -43,7 +43,7 @@ const About: React.FC = () => {
       <AboutHero />
 
       {/* ✅ Rest of the page (content sections) */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-28">
         <WhoWeAre />
         <PremiumStats />
         <OurCulture />

@@ -1,5 +1,5 @@
 // src/pages/NonITServiceCategoryPage.tsx
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { NON_IT_SERVICE_CATEGORIES } from "../data/nonItServicesData";
 import { NON_IT_HERO_IMAGES } from "../data/nonItHeroImages";
@@ -8,12 +8,33 @@ const NonITServiceCategoryPage: React.FC = () => {
   const { categorySlug } = useParams();
   const navigate = useNavigate();
 
+  // ✅ scroll helper (works for window + common scroll containers)
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+
+    const container =
+      document.querySelector<HTMLElement>("#app-scroll") ||
+      document.querySelector<HTMLElement>("[data-scroll-container]");
+    if (container) container.scrollTop = 0;
+  };
+
   const category = useMemo(
     () => NON_IT_SERVICE_CATEGORIES.find((c) => c.slug === categorySlug),
     [categorySlug]
   );
 
   const [activeSlug, setActiveSlug] = useState<string>("");
+
+  // ✅ when category changes, reset active item + scroll to top
+  useEffect(() => {
+    setActiveSlug("");
+    // category page navigation should start at top
+    scrollToTop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categorySlug]);
 
   const activeItem = useMemo(() => {
     if (!category) return null;
@@ -45,13 +66,18 @@ const NonITServiceCategoryPage: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           {/* Breadcrumb */}
           <div className="text-sm text-gray-400 mb-6">
-            <Link to="/services" className="hover:text-purple-300 transition">
+            <Link
+              to="/services"
+              className="hover:text-purple-300 transition"
+              onClick={scrollToTop}
+            >
               Services
             </Link>
             <span className="mx-2">/</span>
             <Link
               to="/services/non-it"
               className="hover:text-purple-300 transition"
+              onClick={scrollToTop}
             >
               Non-IT Services
             </Link>
@@ -89,7 +115,12 @@ const NonITServiceCategoryPage: React.FC = () => {
                   return (
                     <button
                       key={item.slug}
-                      onClick={() => setActiveSlug(item.slug)}
+                      onClick={() => {
+                        setActiveSlug(item.slug);
+
+                        // ✅ MAIN FIX: same route → force scroll to top
+                        requestAnimationFrame(() => scrollToTop());
+                      }}
                       className={[
                         "w-full text-left px-5 py-4 rounded-2xl border transition",
                         isActive
@@ -154,12 +185,15 @@ const NonITServiceCategoryPage: React.FC = () => {
                 {/* CTA */}
                 <div className="mt-10 flex flex-wrap gap-4">
                   <button
-                    onClick={() =>
-                      activeItem &&
+                    onClick={() => {
+                      if (!activeItem) return;
+
+                      // ✅ ensure top after navigation
+                      scrollToTop();
                       navigate(
                         `/services/non-it/${category.slug}/${activeItem.slug}`
-                      )
-                    }
+                      );
+                    }}
                     className="px-8 py-4 rounded-2xl font-semibold bg-blue-600 hover:bg-blue-700 transition shadow-[0_0_40px_rgba(37,99,235,0.35)]"
                   >
                     View Service
@@ -167,6 +201,7 @@ const NonITServiceCategoryPage: React.FC = () => {
 
                   <Link
                     to="/book-appointment"
+                    onClick={scrollToTop}
                     className="px-8 py-4 rounded-2xl font-semibold bg-white/5 border border-white/10 hover:bg-white/10 transition"
                   >
                     Book Appointment
@@ -174,6 +209,7 @@ const NonITServiceCategoryPage: React.FC = () => {
 
                   <Link
                     to="/services/non-it"
+                    onClick={scrollToTop}
                     className="px-8 py-4 rounded-2xl font-semibold bg-white/5 border border-white/10 hover:bg-white/10 transition"
                   >
                     Back to Non-IT
@@ -181,8 +217,6 @@ const NonITServiceCategoryPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            
           </main>
         </div>
       </div>
