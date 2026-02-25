@@ -35,7 +35,8 @@ const Leadership: React.FC = () => {
               />
             </div>
 
-            <h3 className="text-2xl font-bold">ANSAR ALI S</h3>
+            <h3 className="text-2xl font-bold">Dr. Adv. S. Ansar Ali
+Managing Director | Corporate & Legal Advisor</h3>
             <p className="text-purple-400 mb-4">Managing Director</p>
 
             <p className="text-purple-200 text-sm leading-relaxed">

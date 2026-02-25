@@ -1,5 +1,5 @@
 // src/pages/Home.tsx
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   Hero,
   EnterpriseDifferentiators,
@@ -11,7 +11,6 @@ import {
   ImpactMetrics,
   Cta,
 } from "../components/home";
-import CookieNotice from "../components/CookieNotice";
 
 const Home: React.FC = () => {
   /* ================= CURSOR GLOW ================= */
@@ -27,19 +26,6 @@ const Home: React.FC = () => {
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
   }, []);
-
-  /* ================= COOKIE NOTICE ================= */
-  const [showCookie, setShowCookie] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("zora-cookie");
-    if (!consent) setShowCookie(true);
-  }, []);
-
-  const acceptCookies = () => {
-    localStorage.setItem("zora-cookie", "accepted");
-    setShowCookie(false);
-  };
 
   return (
     <main className="relative bg-[#010409] text-white overflow-hidden">
@@ -67,14 +53,13 @@ const Home: React.FC = () => {
       />
 
       {/* ================= PAGE CONTENT ================= */}
-      {/* ✅ REMOVED spacer divs that create large blank bands */}
       <div className="relative z-10 flex flex-col">
         <Hero />
         <GlobalImpact />
         <EnterpriseDifferentiators />
         <TrustedBy />
 
-        {/* 🔥 IMPORTANT: CoreServices wrapper to prevent hidden/overflow issues */}
+        {/* Core Services wrapper */}
         <div className="relative z-20">
           <CoreServices />
         </div>
@@ -84,13 +69,6 @@ const Home: React.FC = () => {
         <ImpactMetrics />
         <Cta />
       </div>
-
-      {/* ================= COOKIE NOTICE ================= */}
-      {showCookie && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-          <CookieNotice onAccept={acceptCookies} />
-        </div>
-      )}
     </main>
   );
 };

@@ -38,4 +38,4 @@ User-agent: *
 Allow: /
 
 # ✅ Sitemap for search engines
-Sitemap: https://www.harishn.rf.gd/sitemap.xml
+Sitemap: https://www.zoraai.com/sitemap.xml
