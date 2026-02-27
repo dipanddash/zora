@@ -1,90 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- ================= MAIN PAGES ================= -->
-  <url><loc>https://www.zoraai.com/</loc></url>
-  <url><loc>https://www.zoraai.com/about</loc></url>
-  <url><loc>https://www.zoraai.com/services</loc></url>
-  <url><loc>https://www.zoraai.com/contact</loc></url>
-  <url><loc>https://www.zoraai.com/book-appointment</loc></url>
+  <url><loc>https://www.zoraglobalai.com/</loc></url>
+  <url><loc>https://www.zoraglobalai.com/about</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services</loc></url>
+  <url><loc>https://www.zoraglobalai.com/contact</loc></url>
+  <url><loc>https://www.zoraglobalai.com/book-appointment</loc></url>
 
   <!-- ================= IT SERVICES ================= -->
-  <url><loc>https://www.zoraai.com/services/it</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it</loc></url>
 
   <!-- IT Categories -->
-  <url><loc>https://www.zoraai.com/services/it/website-web-application-services</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/mobile-application-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/ai-automation-solutions</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/custom-enterprise-software</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/cloud-infrastructure-services</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/cybersecurity-solutions</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/website-web-application-services</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/mobile-application-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/ai-automation-solutions</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/custom-enterprise-software</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cloud-infrastructure-services</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cybersecurity-solutions</loc></url>
 
   <!-- IT Items -->
-  <!-- website-web-application-services -->
-  <url><loc>https://www.zoraai.com/services/it/website-web-application-services/website-design-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/website-web-application-services/web-application-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/website-web-application-services/ecommerce-platform-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/website-web-application-services/saas-application-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/website-web-application-services/website-design-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/website-web-application-services/web-application-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/website-web-application-services/ecommerce-platform-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/website-web-application-services/saas-application-development</loc></url>
 
-  <!-- mobile-application-development -->
-  <url><loc>https://www.zoraai.com/services/it/mobile-application-development/android-app-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/mobile-application-development/ios-app-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/mobile-application-development/cross-platform-app-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/mobile-application-development/android-app-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/mobile-application-development/ios-app-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/mobile-application-development/cross-platform-app-development</loc></url>
 
-  <!-- ai-automation-solutions -->
-  <url><loc>https://www.zoraai.com/services/it/ai-automation-solutions/chatbot-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/ai-automation-solutions/workflow-automation-rpa</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/ai-automation-solutions/recommendation-engine-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/ai-automation-solutions/machine-learning-solutions</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/ai-automation-solutions/computer-vision-solutions</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/ai-automation-solutions/aiot-solutions</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/ai-automation-solutions/chatbot-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/ai-automation-solutions/workflow-automation-rpa</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/ai-automation-solutions/recommendation-engine-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/ai-automation-solutions/machine-learning-solutions</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/ai-automation-solutions/computer-vision-solutions</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/ai-automation-solutions/aiot-solutions</loc></url>
 
-  <!-- custom-enterprise-software -->
-  <url><loc>https://www.zoraai.com/services/it/custom-enterprise-software/custom-enterprise-software-development</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/custom-enterprise-software/crm-services</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/custom-enterprise-software/it-staff-augmentation</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/custom-enterprise-software/custom-enterprise-software-development</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/custom-enterprise-software/crm-services</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/custom-enterprise-software/it-staff-augmentation</loc></url>
 
-  <!-- cloud-infrastructure-services -->
-  <url><loc>https://www.zoraai.com/services/it/cloud-infrastructure-services/cloud-migration-services</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/cloud-infrastructure-services/application-integrations</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cloud-infrastructure-services/cloud-migration-services</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cloud-infrastructure-services/application-integrations</loc></url>
 
-  <!-- cybersecurity-solutions -->
-  <url><loc>https://www.zoraai.com/services/it/cybersecurity-solutions/security-audits</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/cybersecurity-solutions/vulnerability-assessment</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/cybersecurity-solutions/threat-monitoring</loc></url>
-  <url><loc>https://www.zoraai.com/services/it/cybersecurity-solutions/data-protection-compliance</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cybersecurity-solutions/security-audits</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cybersecurity-solutions/vulnerability-assessment</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cybersecurity-solutions/threat-monitoring</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/it/cybersecurity-solutions/data-protection-compliance</loc></url>
 
   <!-- ================= NON-IT SERVICES ================= -->
-  <url><loc>https://www.zoraai.com/services/non-it</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it</loc></url>
 
   <!-- Non-IT Categories -->
-  <url><loc>https://www.zoraai.com/services/non-it/business-strategy-consulting</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/staff-augmentation-workforce-solutions</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/branding-creative-services</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/accounting-financial-operations</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/digital-marketing-services</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/business-strategy-consulting</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/staff-augmentation-workforce-solutions</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/branding-creative-services</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/accounting-financial-operations</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/digital-marketing-services</loc></url>
 
   <!-- Non-IT Items -->
-  <url><loc>https://www.zoraai.com/services/non-it/business-strategy-consulting/business-process-optimisation</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/business-strategy-consulting/operational-efficiency-consulting</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/business-strategy-consulting/digital-transformation-consulting</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/business-strategy-consulting/business-process-optimisation</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/business-strategy-consulting/operational-efficiency-consulting</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/business-strategy-consulting/digital-transformation-consulting</loc></url>
 
-  <url><loc>https://www.zoraai.com/services/non-it/staff-augmentation-workforce-solutions/non-it-staff-augmentation</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/staff-augmentation-workforce-solutions/non-it-staff-augmentation</loc></url>
 
-  <url><loc>https://www.zoraai.com/services/non-it/branding-creative-services/brand-identity-positioning</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/branding-creative-services/ui-ux-creative-design</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/branding-creative-services/creative-assets-marketing-design</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/branding-creative-services/website-corporate-content</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/branding-creative-services/content-management-support</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/branding-creative-services/brand-identity-positioning</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/branding-creative-services/ui-ux-creative-design</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/branding-creative-services/creative-assets-marketing-design</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/branding-creative-services/website-corporate-content</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/branding-creative-services/content-management-support</loc></url>
 
-  <url><loc>https://www.zoraai.com/services/non-it/accounting-financial-operations/accounting-management</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/accounting-financial-operations/bookkeeping-ledger-handling</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/accounting-financial-operations/financial-reporting</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/accounting-financial-operations/financial-operations-support</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/accounting-financial-operations/accounting-management</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/accounting-financial-operations/bookkeeping-ledger-handling</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/accounting-financial-operations/financial-reporting</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/accounting-financial-operations/financial-operations-support</loc></url>
 
-  <url><loc>https://www.zoraai.com/services/non-it/digital-marketing-services/seo-content-growth</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/digital-marketing-services/performance-marketing</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/digital-marketing-services/social-media-branding</loc></url>
-  <url><loc>https://www.zoraai.com/services/non-it/digital-marketing-services/lead-generation-campaigns</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/digital-marketing-services/seo-content-growth</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/digital-marketing-services/performance-marketing</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/digital-marketing-services/social-media-branding</loc></url>
+  <url><loc>https://www.zoraglobalai.com/services/non-it/digital-marketing-services/lead-generation-campaigns</loc></url>
 
 </urlset>
